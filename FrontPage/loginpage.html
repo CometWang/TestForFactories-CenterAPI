@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Login</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta charset="utf-8">
+   <!--Link the files that needed to be used to this file-->
+   <link rel="stylesheet" type="text/css" href="loginstyle.css" />
+   
+</head>
+
+<script type="text/javascript"/>
+    function WidthCheck(str, maxLen){  
+          var w = 0;  
+          var tempCount = 0; 
+          //length 获取字数数，不区分汉子和英文 
+         for (var i=0; i<str.value.length; i++) {  
+                     //charCodeAt()获取字符串中某一个字符的编码 
+         var c = str.value.charCodeAt(i);  
+         //单字节加1  
+         if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)) {  
+              w++;  
+         } 
+        else {    
+           w+=2;  
+         }  
+        if (w > maxLen) {  
+          str.value = str.value.substr(0,i); 
+          break; 
+         }    
+       }  
+    } 
+  </script>
+  <h1>LOGIN SYSTEM</h1>
+<body>
+    
+    <div id="app">
+   <form action="loginauth.php" method="post">
+       <div><input type="text" class="logincontrol" name="username" placeholder="Enter your username" onkeyup="WidthCheck(this,32),this.value=this.value.replace(/\s+/g,'')" required/></div>
+      <div> <input type="password" class="logincontrol" name="password" placeholder="Enter your password" onkeyup="WidthCheck(this,32)" required/></div>
+    
+    <input id="ss" type="submit" class="ssubmit" value="Login">
+  </form>  
+  </div>
+</body>
+</html>

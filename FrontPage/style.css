@@ -1,0 +1,64 @@
+body{
+    height: 80vh;
+    background-image: url("original.png");
+    background-repeat: no-repeat;
+    background-size:20%;
+    background-color: white;
+    background-attachment: fixed;
+    background-position:top right ;
+    margin: 10%;
+    padding: 0;
+    text-align:center;
+    background-color: white;
+    font-family: sans-serif;
+}
+/*
+to define the class title's style 
+*/
+.mytitle
+{
+align-content: center;
+   margin-top: 100px;
+   color: rgba(130, 123, 226, 0.815);
+   text-transform:uppercase;
+   font-family: sans-serif;
+}
+
+form{
+    margin-top: 50px; 
+    transition: all 4s ease-in-out;
+}
+
+input.formcontrol{
+
+    width: 600px;
+    background: transparent;
+    border:none;
+    outline:none;
+    border-bottom: 1px solid gainsboro;
+    color:rgba(114, 114, 199, 0.644);
+    font-size: 18px;
+    margin-bottom: 16px;
+
+}
+.select{
+    color: rgb(134, 132, 132);
+}
+
+form .ssubmit{
+  
+    background:rgba(108, 108, 231, 0.548);
+    border-color:transparent;
+    color: #fff;
+    font-size:20px;
+    font-weight: bold;
+    letter-spacing:  2px;
+    height:50px;
+    margin-top:50px;
+}
+.ssubmit:hover{
+    background-color:rgb(68, 68, 172);
+    cursor:pointer;
+}
+
+/*WHY 对于class的用法 为什么有的是 form.submit是可以的 有的不可以*/

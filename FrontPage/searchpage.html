@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--Link the files that needed to be used to this file-->
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<title>Database search system</title>
+	
+</head>
+
+ <script src='http://libs.baidu.com/jquery/2.0.0/jquery.min.js' >
+ <script type="text/javascript"/>
+	$(function(){
+		//
+		
+		var $tables = $("input[name=table]");
+		var $cancel = $("#cancel");
+		var $byhide = $("#byhide");
+		var $remove = $("#remove");
+		//
+		$cancel.click(function(e){
+			// 移除属性,两种方式都可
+			//$browsers.removeAttr("checked");
+			$tables.attr("checked",false);
+		});
+		//
+		$byhide.click(function(e){
+			// 切换到一个隐藏域,两种方式均可
+			//$("#hidebrowser").attr("checked",true);
+			$("#hidebrowser").attr("checked","checked");
+		});
+		//
+		$remove.click(function(e){
+			// 直接去的DOM元素,移除属性
+			// 如果不使用jQuery,则可以移植此方式
+			var checkedtable=document.getElementsByName("names");
+			/*
+			$.each(checkedbrowser, function(i,v){
+				v.checked = false;
+				v.removeAttribute("checked");
+			});
+			*/
+			//
+			var len = checkedtable.length;
+			var i = 0;
+			for(; i < len; i++){
+				// 必须先赋值为false,再移除属性
+				checkedtable[i].checked = false;
+				// 不移除属性也可以
+				//checkedbrowser[i].removeAttribute("checked");
+			}
+ 
+		});
+	});
+  </script>
+
+  <script type="text/javascript">
+  function WidthCheck(str, maxLen){  
+		var w = 0;  
+		var tempCount = 0; 
+		//length 获取字数数，不区分汉子和英文 
+	   for (var i=0; i<str.value.length; i++) {  
+				   //charCodeAt()获取字符串中某一个字符的编码 
+	   var c = str.value.charCodeAt(i);  
+	   //单字节加1  
+	   if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)) {  
+			w++;  
+	   } 
+	  else {    
+		 w+=2;  
+	   }  
+	  if (w > maxLen) {  
+		str.value = str.value.substr(0,i); 
+		break; 
+	   }    
+	 }  
+  } 
+</script>
+<script type="text/javascript">
+	window.onunload=function(){
+		location = 'logout.php';
+	}
+</script>
+<body>
+
+<div class="mytitle">
+     <h1>Search system<h1> 
+</div>
+
+<div class="searchForm">
+   <form id="try" name="input" action="formtry.php" method="get">
+	   
+     <div><input type="text" class="formcontrol" name="serialNum" placeholder="Serial Number" onkeyup="WidthCheck(this,64),this.value=this.value.replace(/\s+/g,'')" required /></div>
+     <div>
+		 <input type="radio" name="table" value="sn" required/> <label class="select" for="table">SN </label> 
+		 <input type="radio"   name="table" value="tn" required>  <label class="select" for="table">TN </label>
+	</div>
+	<input id="ss" type="submit" class="ssubmit" value="Submit">
+   </form>	
+</div>
+
+<div>
+	</div>
+</body>
+
+</html>
