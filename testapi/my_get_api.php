@@ -6,7 +6,7 @@ require_once('private.php');
 
 require_once('connect.php');//this is a parameter into a function to connect the certain database
 //use the connection function to connect center
-connector('192.168.50.236','interntest','interntest','rrseccloudtest');
+connector('192.168.','interntest','interntest','rrseccloudtest');
 
 
 date_default_timezone_set('PRC');
